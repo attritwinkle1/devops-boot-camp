@@ -17,6 +17,8 @@ pipeline {
       stage ('Creating package') {
          steps {
            sh 'mvn package -DskipTests=true'
+         }
+      }
       stage ('Deploying Application using Ansible') {
          steps {
            sh ‘export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook —private_key=/home/ubuntu/.ssh/repo1.key -i host_inventory deploy_artifact.yml’
