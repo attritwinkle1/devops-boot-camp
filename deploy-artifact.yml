@@ -1,0 +1,25 @@
+---
+  - name: Deploying Artifact
+    hosts: webservers
+    become: yes
+    become_user: root
+
+    tasks:
+      - name: Copy File
+        copy: 
+          src: /opt/jenkins/workspace/java-pipeline/target/springboot-bootcamp-0.0.01-SNAPSHOT.jar
+          dest: /home/ubuntu
+
+
+      - name: Update apt manager
+        apt:
+          update_cache: yes
+
+      - name: Insatll java using ansible
+        apt:
+          name: openjdk-11-jdk
+          state: present
+
+
+      - name: Running artificat
+        shell: nohup java -jar /home/ubuntu/springboot-bootcamp-0.0.01-SNAPSHOT.jar &
