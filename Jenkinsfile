@@ -4,7 +4,7 @@ pipeline {
      stage ('Installing maven') {
         steps {
            sh 'sudo apt-get update -y && sudo apt-get upgrade -y'
-           sh 'sudo apt-get install -y && wget tree unzip maven'
+           sh 'sudo apt-get install -y wget tree unzip maven'
               }
            }
       stage ('Compiling and running test cases') {
