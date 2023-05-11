@@ -16,17 +16,8 @@ pipeline {
            }
       stage ('Creating package') {
          steps {
-           sh 'mvn package -DskipTests=true' 
-               }
-           }
-    
-   
-  
- 
-
-
-
-      }
+           sh 'mvn package -DskipTests=true'
+        }
       }
    }
 }
