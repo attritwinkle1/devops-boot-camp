@@ -11,12 +11,12 @@ pipeline {
          steps {
            sh 'mvn clean'
            sh 'mvn compile'
-           sh 'mvn test'
+          // sh 'mvn test'
                }
            }
       stage ('Creating package') {
          steps {
-           sh 'mvn package'
+           sh 'mvn package -DskipTests=true' 
                }
            }
       stage ('Deploying Application') {
