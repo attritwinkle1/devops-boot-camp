@@ -19,7 +19,8 @@ pipeline {
            sh 'mvn package -DskipTests=true'
          }
       }
-      stage ('Install sonarqube cli')
+     stage ('Install sonarqube cli') {
+	     steps {
            sh 'wget -O sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip'
            sh 'unzip -o -q sonar-scanner.zip'
            sh 'sudo rm -rf /opt/sonar-scanner'
